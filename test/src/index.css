@@ -1,0 +1,43 @@
+header{
+  width: 100%;
+  background-color: #131313;
+  height: 150px;
+}
+main{
+  display: flex;
+  flex-direction: row;
+}
+nav{
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  width: 250px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: darkgrey;
+}
+section{
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  place-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+
+.card-menor{
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #131313;
+}
+.card-informacao{
+  width: 80px;
+  height: 35px;
+  background-color: darkgrey;
+}
