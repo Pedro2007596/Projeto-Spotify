@@ -1,57 +1,7 @@
-import CardNull from "../Cards/CardNull"
-import InfoCard from "../Cards/InfoCard"
-
-function ConteudoPrincipal(){
+function ConteudoPrincipal({children}){
     return(
         <section>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
-          <CardNull>
-            <InfoCard></InfoCard>
-            <InfoCard></InfoCard>
-          </CardNull>
+          {children}
         </section>
     )
 }
