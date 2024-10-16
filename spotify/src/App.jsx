@@ -17,6 +17,7 @@ function App() {
     .then(res => res.json())
     .then(data => setArtistas(data))
     .catch(err => console.log(err))
+    .finally(() => console.log('finalizou a requisição')  )
   }, [])
 
   return (
@@ -25,15 +26,37 @@ function App() {
       <ContainerCP>
         <Sidebar></Sidebar>
         <ConteudoPrincipal>
-          {
-            artistas.map( artista => (
-              <CardNull>
-              <InfoCard></InfoCard>
-              <InfoCard><p>{artista.name}</p></InfoCard>
-            </CardNull>
-            ))
-          }
-
+          
+          <>
+            <div className='estilo'>
+              <h1>Rock</h1>
+              {
+                artistas
+                .filter(artistas => artistas.genero.includes('rock'))
+                .map( artista => (
+                  <CardNull>
+                  <InfoCard></InfoCard>
+                  <InfoCard><p>{artista.nome}</p></InfoCard>
+                  </CardNull>
+                ))
+              }
+            </div>
+          </>
+          <>
+            <div className='estilo'>
+              <h1>Pop</h1>
+              {
+                artistas
+                .filter(artistas => artistas.genero.includes('pop'))
+                .map( artista => (
+                  <CardNull>
+                  <InfoCard></InfoCard>
+                  <InfoCard><p>{artista.nome}</p></InfoCard>
+                  </CardNull>
+                ))
+              }
+            </div>
+          </>
         </ConteudoPrincipal>
       </ContainerCP>
     </>
