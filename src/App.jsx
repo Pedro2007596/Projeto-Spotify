@@ -19,7 +19,7 @@ function App() {
     .catch(err => console.log(err))
     .finally(() => console.log('finalizou a requisição')  )
   }, [])
-
+  console.log(artistas)
   return (
     <>
       <Header></Header>
@@ -32,7 +32,7 @@ function App() {
               <h1>Rock</h1>
               {
                 artistas
-                .filter(artistas => artistas.genero.includes('rock'))
+                .filter(artista => artista.genero.includes('rock'))
                 .map( artista => (
                   <CardNull>
                   <InfoCard></InfoCard>
@@ -47,7 +47,7 @@ function App() {
               <h1>Pop</h1>
               {
                 artistas
-                .filter(artistas => artistas.genero.includes('pop'))
+                .filter(artista => artista.genero.includes("pop"))
                 .map( artista => (
                   <CardNull>
                   <InfoCard></InfoCard>
