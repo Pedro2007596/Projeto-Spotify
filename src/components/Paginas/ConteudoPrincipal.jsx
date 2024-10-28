@@ -25,12 +25,14 @@ function ConteudoPrincipal(){
                 .filter(artista => artista.genero.includes('rock'))
                 .map( artista => (
                   <>
-                  <Link to={`/artistas/${artista._id}`}/>
+                  <Link to={`/artistas/${artista._id}`}>
                     <CardNull>
-                    <InfoCard></InfoCard>
-                    <InfoCard><p>{artista.nome}</p></InfoCard>
+                    <img className="card-Image" src={`${artista.img}`}/>
+                    <InfoCard>
+                        <h2 className="titulo-card">{artista.nome}</h2>
+                    </InfoCard>
                     </CardNull>
-                  <Link/>
+                  </Link>
                   </>
                 ))
               }
@@ -43,10 +45,37 @@ function ConteudoPrincipal(){
                 artistas
                 .filter(artista => artista.genero.includes("pop"))
                 .map( artista => (
-                  <CardNull>
-                  <InfoCard></InfoCard>
-                  <InfoCard><p>{artista.nome}</p></InfoCard>
-                  </CardNull>
+                  <>
+                  <Link to={`/artistas/${artista._id}`}>
+                    <CardNull>
+                    <img className="card-Image" src={`${artista.img}`}/>
+                    <InfoCard>
+                        <h2 className="titulo-card">{artista.nome}</h2>
+                    </InfoCard>
+                    </CardNull>
+                  </Link>
+                  </>
+                ))
+              }
+            </div>
+          </>
+          <>
+            <div className='estilo'>
+              <h1>Forro</h1>
+              {
+                artistas
+                .filter(artista => artista.genero.includes("forro"))
+                .map( artista => (
+                  <>
+                  <Link to={`/artistas/${artista.img}`}>
+                    <CardNull>
+                    <img className="card-Image" src={`${artista.img}`}/>
+                    <InfoCard>
+                        <h2 className="titulo-card">{artista.nome}</h2>
+                    </InfoCard>
+                    </CardNull>
+                  </Link>
+                  </>
                 ))
               }
             </div>

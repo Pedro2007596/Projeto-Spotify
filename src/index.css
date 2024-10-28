@@ -36,13 +36,9 @@ aside{
   background-color: var(--cinza);
 }
 section{
-  display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
-  grid-column-gap: 20px;
-  grid-row-gap: 40px;
-  place-items: center;
-  width: 100%;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
 }
 
 .estilo{
@@ -67,4 +63,8 @@ section{
   background-color: var(--cinza);
   color: #FAFAFA;
   font-weight: bolder;
+}
+
+.card-Image{
+  width: 110px;
 }
