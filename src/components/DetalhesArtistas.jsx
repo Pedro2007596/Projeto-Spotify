@@ -10,12 +10,15 @@ export default function DetalhesArtistas(){
         .then(res => res.json())
         .then(data => setArtista(data))
         .catch(err => console.log(err))
-        .finally(() => console.log(artista)  )
       }, [])
     
     return(
-        <>
-            <p>{id}</p>
-        </>
+        <section>
+            <div className="estilo">
+                <h2>{artista?.nome}</h2>
+                <img className="estilo img" src={artista?.img} alt="" />
+                <p>{artista?.genero}</p>
+            </div>
+        </section>
     )
 }

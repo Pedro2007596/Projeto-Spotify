@@ -27,10 +27,11 @@ function ConteudoPrincipal(){
                   <>
                   <Link to={`/artistas/${artista._id}`}>
                     <CardNull>
-                    <img className="card-Image" src={`${artista.img}`}/>
                     <InfoCard>
                         <h2 className="titulo-card">{artista.nome}</h2>
                     </InfoCard>
+
+                    <img className="card-Image" src={`${artista.img}`}/>
                     </CardNull>
                   </Link>
                   </>
@@ -48,10 +49,11 @@ function ConteudoPrincipal(){
                   <>
                   <Link to={`/artistas/${artista._id}`}>
                     <CardNull>
-                    <img className="card-Image" src={`${artista.img}`}/>
                     <InfoCard>
                         <h2 className="titulo-card">{artista.nome}</h2>
                     </InfoCard>
+
+                    <img className="card-Image" src={`${artista.img}`}/>
                     </CardNull>
                   </Link>
                   </>
@@ -62,22 +64,25 @@ function ConteudoPrincipal(){
           <>
             <div className='estilo'>
               <h1>Forro</h1>
+              <div className="artistas">
               {
                 artistas
                 .filter(artista => artista.genero.includes("forro"))
                 .map( artista => (
                   <>
-                  <Link to={`/artistas/${artista.img}`}>
+                  <Link to={`/artistas/${artista._id}`}>
                     <CardNull>
-                    <img className="card-Image" src={`${artista.img}`}/>
                     <InfoCard>
                         <h2 className="titulo-card">{artista.nome}</h2>
                     </InfoCard>
+
+                    <img className="card-Image" src={`${artista.img}`}/>
                     </CardNull>
                   </Link>
                   </>
                 ))
               }
+              </div>
             </div>
           </>
         </section>

@@ -21,7 +21,12 @@ app.get('/artistas', async(req, res) => {
 })
 
 app.get('/artistas/:id', async(req, res) => {
-    const artistas = await artista.findById(req.params.id);
+    const artistas = await artista.findById(req.params.id)
+    .catch((erro) => {
+        res.status(500).json(erro)
+        return
+    })
+    
     res.status(200).json(artistas);
     console.log("get : fazendo get no id:", req.params.id)
 })
