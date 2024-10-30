@@ -1,0 +1,178 @@
+:root{
+  --preto: #131313;
+  --cinza: darkgrey;
+  --cinzaEscuro: #363636;
+  --branco: #FAFAFA;
+}
+
+body{
+  background-color: var(--preto);
+}
+
+
+header{
+  width: 100%;
+  background-color: var(--preto);
+  height: 60px;
+  padding: 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0px;
+}
+.header-logo{
+  width: 55px;
+}
+.header-pesquisa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-casa{
+  width: 40px;
+  padding: 5px;
+  border-radius: 100px;
+  background-color: var(--cinzaEscuro);
+  margin-right: 10px;
+}
+.pesquisa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cinzaEscuro);
+  border-radius: 40px;
+  padding: 5px;
+}
+.pesquisa img{
+  width: 40px;
+}
+.pesquisa input{
+  background-color: var(--cinzaEscuro);
+  color: var(--branco);
+  border: 0px none;
+  font-size: 20px;
+}
+
+
+.btn-preto{
+  padding: 12px 26px;
+  background-color: var(--preto);
+  border: none;
+  color: var(--cinza);
+  font-size: 20px;
+  transition: 0.2s linear;
+}
+.btn-preto:hover{
+  color: var(--branco);
+  font-size: 20.5px;
+  transition: 0.2s linear;
+}
+.btn-branco{
+  padding: 12px 26px;
+  background-color: var(--branco);
+  border-radius: 40px;
+  border: none;
+  color: var(--preto);
+  font-size: 20px;
+  transition: 0.2s linear;
+  margin-right: 10px;
+}
+.btn-branco:hover{
+  font-size: 20.5px;
+  transition: 0.2s linear;
+}
+
+
+main{
+  display: flex;
+  flex-direction: row;
+  margin-top: 70px;
+  color: var(--branco);
+}
+aside{
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  width: 320px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cinzaEscuro);
+  border-radius: 10px;
+}
+section{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cinzaEscuro);
+  margin-left: 10px;
+  border-radius: 10px;
+  padding: 10px 30px;
+  width: 150vh;
+  height: 84vh;
+  overflow-y: auto;
+  overflow-x: hidden; 
+}
+section::-webkit-scrollbar{
+  width: 10px;
+}
+section::-webkit-scrollbar-track {
+  background: var(--cinzaEscuro);
+  border-radius: 10px;
+}
+section::-webkit-scrollbar-thumb {
+  background-color: var(--cinza);
+  border-radius: 10px;
+}
+
+.estilo{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.artistas{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-menor{
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 10px;
+  margin-right: 50px;
+  position: relative;
+  overflow: hidden;
+  font-size: 15px;
+  background-color: var(--preto);
+  border-radius: 10px;
+}
+.card-menor:hover img{
+  width: 110px;
+  transition: 0.2s linear;
+}
+.card-menor img{
+  width: 100px;
+  position: absolute;
+  right: 0px;
+  bottom: -30px;
+  border-radius: 10px;
+  transform: rotate(-10deg);
+  transition: 0.2s linear;
+}
+.card-informacao{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100px;
+  height: 35px;
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.card-Image{
+  width: 110px;
+}
