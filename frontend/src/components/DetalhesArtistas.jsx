@@ -15,9 +15,9 @@ export default function DetalhesArtistas(){
     return(
         <section>
             <div className="estilo">
-                <h2>{artista?.nome}</h2>
-                <img className="estilo img" src={artista?.img} alt="" />
-                <p>{artista?.genero}</p>
+                <h2 className="sobre-nome">{artista?.nome}</h2>
+                <img className="sobre-img" src={artista?.img} alt="" />
+                <p>{artista?.sobre}</p>
             </div>
         </section>
     )

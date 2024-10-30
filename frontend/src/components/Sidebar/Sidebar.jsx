@@ -6,8 +6,7 @@ function Sidebar(){
         <ContainerSidebar>
           <CardNull>
               <h5>
-              Alguma Coisa <br /> <br />
-            MAS EU ESTOU COM PREGUIÇA <br/><br /> :D
+                Spotifai
               </h5>
           </CardNull>
         </ContainerSidebar>
