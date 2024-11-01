@@ -6,7 +6,7 @@ function Sidebar(){
         <ContainerSidebar>
           <CardNull>
               <h5>
-                Spotifai
+                Não Feito
               </h5>
           </CardNull>
         </ContainerSidebar>

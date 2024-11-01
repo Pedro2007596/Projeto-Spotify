@@ -1,91 +1,84 @@
-import { useEffect, useState } from "react";
-import CardNull from "../Cards/CardNull"
-import InfoCard from "../Cards/InfoCard"
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import CardNull from '../Cards/CardNull';
+import InfoCard from '../Cards/InfoCard';
 
-function ConteudoPrincipal(){
-    const[artistas, setArtistas] = useState([]);
-    const[isLoading, setLoading] = useState(false);
+const ConteudoPrincipal = () => {
+  const [artistas, setArtistas] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
-    useEffect(()=>{
-      fetch('http://localhost:3000/artistas')
+  useEffect(() => {
+    setLoading(true);
+    fetch('http://localhost:3000/artistas')
       .then(res => res.json())
-      .then(data => setArtistas(data))
-      .catch(err => console.log(err))
-      .finally(() => console.log('finalizou a requisição')  )
-    })
+      .then(data => {
+        console.log("Dados recebidos:", data);
+        setArtistas(data);
+      })
+      .catch(err => console.error("Erro ao buscar artistas:", err))
+      .finally(() => {
+        setLoading(false);
+        console.log('Finalizou a requisição');
+      });
+  }, []);
 
-    return(
-      <section>
-      <>
-            <div className='estilo'>
-              <h1>Rock</h1>
-              {
-                artistas
-                .filter(artista => artista.genero.includes('rock'))
-                .map( artista => (
-                  <>
-                  <Link to={`/artistas/${artista._id}`}>
-                    <CardNull>
+  return (
+    <section>
+      {isLoading && <p>Carregando...</p>}
+      {!isLoading && artistas.length === 0 && <p>Nenhum artista encontrado.</p>}
+      {!isLoading && artistas.length > 0 && (
+        <>
+          <div className="estilo">
+            <h1>Rock</h1>
+            {artistas
+              .filter(artista => artista.genero && artista.genero.includes('rock'))
+              .map(artista => (
+                <Link key={artista._id} to={`/artistas/${artista._id}`}>
+                  <CardNull>
                     <InfoCard>
-                        <h2 className="titulo-card">{artista.nome}</h2>
+                      <h2 className="titulo-card">{artista.nome}</h2>
                     </InfoCard>
+                    <img className="card-Image" src={artista.img} alt={artista.nome} />
+                  </CardNull>
+                </Link>
+              ))}
+          </div>
 
-                    <img className="card-Image" src={`${artista.img}`}/>
-                    </CardNull>
-                  </Link>
-                  </>
-                ))
-              }
-            </div>
-          </>
-          <>
-            <div className='estilo'>
-              <h1>Pop</h1>
-              {
-                artistas
-                .filter(artista => artista.genero.includes("pop"))
-                .map( artista => (
-                  <>
-                  <Link to={`/artistas/${artista._id}`}>
-                    <CardNull>
+          <div className="estilo">
+            <h1>Pop</h1>
+            {artistas
+              .filter(artista => artista.genero && artista.genero.includes('pop'))
+              .map(artista => (
+                <Link key={artista._id} to={`/artistas/${artista._id}`}>
+                  <CardNull>
                     <InfoCard>
-                        <h2 className="titulo-card">{artista.nome}</h2>
+                      <h2 className="titulo-card">{artista.nome}</h2>
                     </InfoCard>
+                    <img className="card-Image" src={artista.img} alt={artista.nome} />
+                  </CardNull>
+                </Link>
+              ))}
+          </div>
 
-                    <img className="card-Image" src={`${artista.img}`}/>
-                    </CardNull>
-                  </Link>
-                  </>
-                ))
-              }
-            </div>
-          </>
-          <>
-            <div className='estilo'>
-              <h1>Forro</h1>
-              <div className="artistas">
-              {
-                artistas
-                .filter(artista => artista.genero.includes("forro"))
-                .map( artista => (
-                  <>
-                  <Link to={`/artistas/${artista._id}`}>
-                    <CardNull>
+          <div className="estilo">
+            <h1>Rap</h1>
+            {artistas
+              .filter(artista => artista.genero && artista.genero.includes('rap'))
+              .map(artista => (
+                <Link key={artista._id} to={`/artistas/${artista._id}`}>
+                  <CardNull>
                     <InfoCard>
-                        <h2 className="titulo-card">{artista.nome}</h2>
+                      <h2 className="titulo-card">{artista.nome}</h2>
                     </InfoCard>
+                    <img className="card-Image" src={artista.img} alt={artista.nome} />
+                  </CardNull>
+                </Link>
+              ))}
+          </div>
+        </>
+      )}
+    </section>
+  );
+};
 
-                    <img className="card-Image" src={`${artista.img}`}/>
-                    </CardNull>
-                  </Link>
-                  </>
-                ))
-              }
-              </div>
-            </div>
-          </>
-        </section>
-    )
-}
-export default ConteudoPrincipal
+export default ConteudoPrincipal;
