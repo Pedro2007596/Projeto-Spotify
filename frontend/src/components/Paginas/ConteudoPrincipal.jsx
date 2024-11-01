@@ -8,19 +8,21 @@ const ConteudoPrincipal = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    fetch('http://localhost:3000/artistas')
-      .then(res => res.json())
-      .then(data => {
-        console.log("Dados recebidos:", data);
+    const fetchArtistas = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/artistas/");
+        const data = await response.json();
         setArtistas(data);
-      })
-      .catch(err => console.error("Erro ao buscar artistas:", err))
-      .finally(() => {
+      } catch (error) {
+        console.error("Erro ao buscar artistas:", error);
+      } finally {
         setLoading(false);
-        console.log('Finalizou a requisição');
-      });
+      }
+    };
+
+    fetchArtistas();
   }, []);
+
 
   return (
     <section>
@@ -31,14 +33,14 @@ const ConteudoPrincipal = () => {
           <div className="estilo">
             <h1>Rock</h1>
             {artistas
-              .filter(artista => artista.genero && artista.genero.includes('rock'))
+              .filter(artista => artista.genres && artista.genres.includes('rock'))
               .map(artista => (
                 <Link key={artista._id} to={`/artistas/${artista._id}`}>
                   <CardNull>
                     <InfoCard>
-                      <h2 className="titulo-card">{artista.nome}</h2>
+                      <h2 className="titulo-card">{artista.name}</h2>
                     </InfoCard>
-                    <img className="card-Image" src={artista.img} alt={artista.nome} />
+                    <img className="card-Image" src={artista.img} alt={artista.name} />
                   </CardNull>
                 </Link>
               ))}
@@ -47,14 +49,14 @@ const ConteudoPrincipal = () => {
           <div className="estilo">
             <h1>Pop</h1>
             {artistas
-              .filter(artista => artista.genero && artista.genero.includes('pop'))
+              .filter(artista => artista.genres && artista.genres.includes('pop'))
               .map(artista => (
                 <Link key={artista._id} to={`/artistas/${artista._id}`}>
                   <CardNull>
                     <InfoCard>
-                      <h2 className="titulo-card">{artista.nome}</h2>
+                      <h2 className="titulo-card">{artista.name}</h2>
                     </InfoCard>
-                    <img className="card-Image" src={artista.img} alt={artista.nome} />
+                    <img className="card-Image" src={artista.img} alt={artista.name} />
                   </CardNull>
                 </Link>
               ))}
@@ -63,14 +65,14 @@ const ConteudoPrincipal = () => {
           <div className="estilo">
             <h1>Rap</h1>
             {artistas
-              .filter(artista => artista.genero && artista.genero.includes('rap'))
+              .filter(artista => artista.genres && artista.genres.includes('rap'))
               .map(artista => (
                 <Link key={artista._id} to={`/artistas/${artista._id}`}>
                   <CardNull>
                     <InfoCard>
-                      <h2 className="titulo-card">{artista.nome}</h2>
+                      <h2 className="titulo-card">{artista.name}</h2>
                     </InfoCard>
-                    <img className="card-Image" src={artista.img} alt={artista.nome} />
+                    <img className="card-Image" src={artista.img} alt={artista.name} />
                   </CardNull>
                 </Link>
               ))}
